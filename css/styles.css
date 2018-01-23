@@ -2,10 +2,21 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: #E0F2F1;
+    font-family: 'Roboto', sans-serif;
 }
 
 a:hover {
     text-decoration: none;
+}
+
+span:hover {
+    cursor: default;
+}
+
+.project-name {
+    font-size: 35px;
+    font-variant: petite-caps;
 }
 
 #wrapper {
@@ -13,26 +24,34 @@ a:hover {
     position: relative;
     top: 80px;
 }
-
 nav {
     height: 80px;
-    background-color: antiquewhite;
+    background-color: #26a69a;   /* Teal (400) */
     position: fixed;
     top: 0;
+    color: #FFFFFF;
     width: 100%;
     z-index: 10;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
+
+.nav-item .content {
+    color: white;
 }
 
 footer {
     height: 40px;
-    background-color: aquamarine;
+    background-color: #26a69a;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 .left-col {
-    background-color: aqua;
+    background-color: #26C6DA;  /* Cian (400) */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .right-col {
@@ -41,7 +60,6 @@ footer {
 }
 
 .nav-item {
-    /*border: 2px solid #43bc35;*/
     height: 80px;
     display: flex;
     justify-content: center;
@@ -57,27 +75,29 @@ footer {
     margin-right: 50px;     /* TODO: remove later */
 }
 
-.nav-item:hover {
-    background-color: darkseagreen;
-}
-
 .panel-item {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
     position: relative;
-    /*height: 3em;*/
-    margin-top: 30px;
-    height: 100px;
+    align-items: center;
+    margin-top: 15px;
+    height: 60px;
+    background-color: #29B6F6;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    color: white;
 }
 
 .panel-item:hover {
     /*background-color: orangered;*/
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .dashboard-item {
-    border: 1px solid black;
     margin-top: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: white;
+    min-height: 700px;
 }
 
 .dashboard-item:last-child {
@@ -100,7 +120,7 @@ footer {
     position: absolute;
     text-align: center;
     border: 1px dotted brown;
-    background-color: white;
+    /*background-color: white;*/
     top: 1px;
     left: 250px;
     height: 6em;
@@ -108,4 +128,45 @@ footer {
     transition: transform ease 2s;
     z-index: 1;
     display: none;
+}
+
+
+.menu-icons::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    background-origin: padding-box;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+
+.floor-map::before {
+    background-image: url(../images/icons/dusk/floor_map.png);
+}
+
+.total-visitors::before {
+    background-image: url(../images/icons/dusk/total_visitors.png);
+}
+
+.analitics::before {
+    background-image: url(../images/icons/dusk/analitics.png);
+}
+
+.presence::before {
+    background-image: url(../images/icons/dusk/presence.png);
+}
+
+.fcasting-vis::before {
+    background-image: url(../images/icons/dusk/forecasting_visitors.png);
+}
+
+.correlation::before {
+    background-image: url(../images/icons/dusk/correlations.png);
+}
+
+.floor-congestion::before {
+    background-image: url(../images/icons/dusk/floor_congestion.png);
 }
