@@ -6,6 +6,12 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
+input {
+    /*margin-left: 10px;*/
+    /*margin-right: 10px;*/
+    padding: 0 0 0 10px;
+}
+
 a:hover {
     text-decoration: none;
 }
