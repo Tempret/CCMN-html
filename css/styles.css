@@ -155,6 +155,12 @@ footer {
     background-image: url(../images/icons/dusk/total_visitors.png);
 }
 
+/*.total-visitors::after {*/
+    /*content: '1234';*/
+    /*padding-left: 10px;*/
+    /*font-size: 20px;*/
+/*}*/
+
 .analitics::before {
     background-image: url(../images/icons/dusk/analitics.png);
 }
