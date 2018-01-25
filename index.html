@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div id="wrapper">
@@ -33,8 +34,23 @@
                         <!--<a class="content">Password:</a>-->
                         <input id="locate" content="password" type="password" placeholder="Locate pass" value="just4reading">
                     </div>
-                    <div class="col-1 date-select">
-                        <a class="content">Date</a>
+                    <div class="col-2 justify-content-center date-select">
+                        <!--<label for="datepicker" class="datepicker-label">Date</label>-->
+                        <!--<input type="date" id="datepicker">-->
+
+                        <p><select name="hero[]">
+                            <option>
+                                <!--<label for="datepicker" class="datepicker-label">Date</label>-->
+                                <input type="date" id="datepicker">
+                            </option>
+                            <option disabled>Выберите героя</option>
+                            <option value="Чебурашка">Чебурашка</option>
+                            <option selected value="Крокодил Гена">Крокодил Гена</option>
+                            <option value="Шапокляк">Шапокляк</option>
+                            <option value="Крыса Лариса">Крыса Лариса</option>
+                        </select></p>
+
+                        <!--<a class="content"></a>-->
                     </div>
 
 
@@ -81,6 +97,8 @@
                         <div class="d-flex flex-column">
                             <div id="dash-total-visitors" class="p-5 dashboard-item visible">
                                 <span>Total visitors</span>
+                                <canvas id="myChart" width="400" height="400"></canvas>
+                                <input style="width: 500px" type="date" >
                             </div>
                             <div id="dash-floor-map" class="p-5 dashboard-item hide">
                                 <span>Floor map</span>
@@ -117,5 +135,7 @@
     </div>
 
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </body>
 </html>
