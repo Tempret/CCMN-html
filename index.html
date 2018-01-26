@@ -38,17 +38,7 @@
                         <!--<label for="datepicker" class="datepicker-label">Date</label>-->
                         <!--<input type="date" id="datepicker">-->
 
-                        <p><select name="hero[]">
-                            <option>
-                                <!--<label for="datepicker" class="datepicker-label">Date</label>-->
-                                <input type="date" id="datepicker">
-                            </option>
-                            <option disabled>Выберите героя</option>
-                            <option value="Чебурашка">Чебурашка</option>
-                            <option selected value="Крокодил Гена">Крокодил Гена</option>
-                            <option value="Шапокляк">Шапокляк</option>
-                            <option value="Крыса Лариса">Крыса Лариса</option>
-                        </select></p>
+
 
                         <!--<a class="content"></a>-->
                     </div>
@@ -89,16 +79,54 @@
                             <div class="p-2 panel-item">
                                 <span class="menu-icons floor-congestion">Floor congestion</span>
                             </div>
+
+                            <select name="date-option" class="date-selection" id="date-selection">
+                                <option value="today">Today</option>
+                                <option value="yesterday">Yesterday</option>
+                                <option value="3-day">Last 3 days</option>
+                                <option value="7-day">Last 7 days</option>
+                                <option value="this-month">This month</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <input id="custom-date" type="date" class="date-selection hide">
                         </div>
                     </div>
                 </div>
                 <div class="col content">
                     <div class="container">
-                        <div class="d-flex flex-column">
+                        <div class="dashboard-container d-flex flex-column">
                             <div id="dash-total-visitors" class="p-5 dashboard-item visible">
-                                <span>Total visitors</span>
-                                <canvas id="myChart" width="400" height="400"></canvas>
-                                <input style="width: 500px" type="date" >
+                                <h1>Total visitors</h1>
+
+                                <p>Daily report</p>
+                                <table class="total-visitors-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Count</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Connected visitors seen today until now</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Passersby seen today until now</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visitors seen today until now</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hour that had peak visitors today</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Hourly report</p>
+                                <canvas id="myChart" width="300" height="200"></canvas>
                             </div>
                             <div id="dash-floor-map" class="p-5 dashboard-item hide">
                                 <span>Floor map</span>
