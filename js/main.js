@@ -40,17 +40,11 @@ var ccmn = {
         });
     },
 
-    randomArray : function (length, max) {
-        return Array.apply(null, Array(length)).map(function() {
-            return Math.round(Math.random() * max);
-        });
-    },
-
     getTimeArray : function() {
         var arr = [];
         var item;
 
-        for(var i = 0; i <= 24; i++) {
+        for(var i = 0; i < 24; i++) {
             if (i < 10)
                 item = '0' + i + '.00';
             else
@@ -60,8 +54,30 @@ var ccmn = {
         return arr;
     },
 
+    getRandomValues: function(min, max, howMany) {
+        arr = [];
+        var value;
+
+        for (var i = 0; i < howMany; i++) {
+            value = Math.random() * (max - min) + min;
+            arr.push(Math.floor(value));
+        };
+        return arr;
+    },
+
+    getColorArray: function(color, length) {
+        arr = [];
+
+        for (var i = 0; i < length; i++)
+            arr.push(color);
+
+        return arr;
+    },
+
     setTableTotalVisitors: function(data, cellId) {
+        console.log(data);
         $(cellId).text(data[0]);
+
     },
 
     chart: NaN,
@@ -111,11 +127,13 @@ $(document).ready(function() {
     /* date select change event END */
 
 
-
-
-    var timerId = setInterval(function() {
-        ccmn.makeApiRequest('cisco-presence.unit.ua/api/presence/v1/connected/count/today', ccmn.apis[1], 'GET', ccmn.setTotalVisitors, {siteId:ccmn.siteId});
-    }, 5000);
+    /* DATA RELOAD LOOP */
+    // var timerId = setInterval(function() {
+    //
+    //     ccmn.makeApiRequest('cisco-presence.unit.ua/api/presence/v1/connected/count/today', ccmn.apis[1], 'GET', ccmn.setTotalVisitors, {siteId:ccmn.siteId});
+    //
+    // }, 5000);
+    /* data reload loop END */
 
     /* charts END*/
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -123,87 +141,21 @@ $(document).ready(function() {
         type: 'bar',
         data: {
             labels: ccmn.getTimeArray(),
-            datasets: [{
-                label: '# of Votes',
-                data: [46, 28, 9, 63, 9, 1, 37, 75, 32, 89, 74, 2, 54, 70, 69, 23, 57, 47, 72, 55],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)',
-                    'rgba(255,99,132,1)'
-                ],
-                borderWidth: 1
-            },
-            {
-                label: '# of Votes',
-                data: [46, 28, 9, 63, 9, 1, 37, 75, 32, 89, 74, 2, 54, 70, 69, 23, 57, 47, 72, 55],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                ],
-                borderColor: [
-
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-
-
-                ],
-                borderWidth: 1
-            }
+            datasets: [
+                {
+                    label: 'Hourly count of connected visitors',
+                    data: ccmn.getRandomValues(1, 100, 24),
+                    backgroundColor: ccmn.getColorArray('rgba(255, 99, 132, 0.2)', 24),
+                    borderColor: ccmn.getColorArray('rgba(255,99,132,1)', 24),
+                    borderWidth: 1
+                },
+                {
+                    label: '# of Votes',
+                    data: ccmn.getRandomValues(1, 100, 24),
+                    backgroundColor: ccmn.getColorArray('rgba(54, 162, 235, 0.2)', 24),
+                    borderColor: ccmn.getColorArray('rgba(54, 162, 235, 1)', 24),
+                    borderWidth: 1
+                }
             ]
         },
         options: {
